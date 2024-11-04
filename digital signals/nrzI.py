@@ -5,12 +5,8 @@ def ChangeToNRZI(dataArray):
     for x in dataArray:
         if (dataArray[x] == 0 and dataArray[x+1] == 0):
             dataArray[x] = 0
-        elif (dataArray[x] == 0 and dataArray[x+1] == 1):
+        if (dataArray[x] == 0 and dataArray[x+1] == 1):
             dataArray[x] = 1
-        elif (dataArray[x] == 1 and dataArray[x+1] == 1):
-            dataArray[x] = 0
-        elif (dataArray[x] == 1 and dataArray[x+1] == 0):
-            dataArray[x] = 0
     return dataArray
 
 
@@ -26,12 +22,11 @@ nrzIDataStream1 = ChangeToNRZI(dataStream1)
 nrzIDataStream2 = ChangeToNRZI(dataStream2)
 
 strDS1 = [str(i) for i in dataStream1]
-ax1.stairs(nrzIDataStream1, linewidth=2.5)
+ax1.stairs(nrzIDataStream1,  linewidth=2.5)
 ax1.set(xlim=(0,len(dataStream1)),ylim=(0,1.1))
 ax1.set_xticks(np.arange(0,10), strDS1)
 ax1.set_yticks([0,0.5,1], ["-", "0", "+"])
 ax1.axhline(y=0.5, c="r")
-ax1.invert_yaxis()
 ax1.set_title("0101101100")
 ax1.grid(axis="x", linestyle="-")
 
@@ -43,7 +38,6 @@ ax2.set(xlim=(0,len(dataStream2)), ylim=(0,1.1))
 ax2.set_xticks(np.arange(0,10), strDS2)
 ax2.set_yticks([0,0.5,1], ["-", "0", "+"])
 ax2.axhline(y=0.5, c="r")
-ax2.invert_yaxis()
 ax2.set_title("1100110110")
 ax2.grid(axis="x", linestyle="-")
 

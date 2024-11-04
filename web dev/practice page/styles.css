@@ -1,0 +1,100 @@
+:root {
+    --smoothFont: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+* {
+    font-family: var(--smoothFont);
+}
+
+html {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+p#heroTitle {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+}
+
+nav {
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    background-color: transparent;
+    display: flex;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+nav ul li {
+    padding: 5px 20px 5px 20px;
+    background-color: #001b2e;
+    border: 1px solid black;
+    border-radius: 2rem;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+nav ul li:hover {
+    background-color: blue;
+}
+nav ul li a {
+    text-decoration-line: none;
+    color: white;
+    font-family: var(--smoothFont);
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: yellow;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background-image: linear-gradient(to bottom, #294c60, #ffc49b);
+}
+
+section {
+    height: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-bottom: 2px solid white;
+}
+
+footer {
+    height: 120px;
+    background-color: white;
+    display: flex;
+    align-content: center;
+}
+footer p {
+    font-size: 2em;
+}
+
+iframe {
+    border: 0;
+}
+
+#roundedCorners {
+    border-radius: 1rem;
+    overflow: hidden;
+    z-index: 1;
+    aspect-ratio: 16/9;
+    min-height: 480px;
+    max-height: 720px;
+}

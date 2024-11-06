@@ -17,15 +17,12 @@ def toMlt3(dataArray):
     for x in range(len(dataArray)):
         if currentState == 0 and dataArray[x] == 0: #if negative and nextbit is 0, stay
             currentState = states[2] # negative volt
-
-        if currentState == 0 and dataArray[x] == 1: #if negative and nextbit is 1, change to zero
+        elif currentState == 0 and dataArray[x] == 1: #if negative and nextbit is 1, change to zero
             currentState = states[1] # zero
             currentVoltage = -1
-
-        if currentState == 0.5 and dataArray[x] == 0: #if at 0 and nextbit is 0, stay
+        elif currentState == 0.5 and dataArray[x] == 0: #if at 0 and nextbit is 0, stay
             currentState = states[1] # zero
-
-        if currentState == 0.5 and dataArray[x] == 1: #if at 0 and nextbit is 1, opposite of last non zero
+        elif currentState == 0.5 and dataArray[x] == 1: #if at 0 and nextbit is 1, opposite of last non zero
             currentVoltage *= -1
             if currentVoltage == -1: #if last voltage is positive
                 currentState = states[2] # negative
@@ -33,11 +30,9 @@ def toMlt3(dataArray):
             else:
                 currentState = states[0] # positive
                 currentVoltage = 1
-
-        if currentState == 1 and dataArray[x] == 0: #if posititve and nextbit is 0, stay
+        elif currentState == 1 and dataArray[x] == 0: #if posititve and nextbit is 0, stay
             currentState = states[0]
-
-        if currentState == 1 and dataArray[x] == 1: #if positive and nextbit is 1, change to zero
+        elif currentState == 1 and dataArray[x] == 1: #if positive and nextbit is 1, change to zero
             currentState = states[1]
             currentVoltage = 1
 
